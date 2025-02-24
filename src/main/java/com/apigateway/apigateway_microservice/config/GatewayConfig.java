@@ -12,10 +12,13 @@ public class GatewayConfig {
     public RouteLocator routes(RouteLocatorBuilder locatorBuilder) {
         return locatorBuilder.routes()
                 .route("appbank-microservice", rt ->
-                        rt
-                                .path("/appbank-microservice/**")
+                        rt.path("/appbank-microservice/**")
                                 .filters(f -> f.stripPrefix(1))
                                 .uri("lb://APPBANK-MICROSERVICE"))
+                .route("movementsmicroservice", rt ->
+                        rt.path("/movement-microservice/**")
+                                .filters(f -> f.stripPrefix(1))
+                                .uri("lb://MOVEMENTSMICROSERVICE"))
                 .build();
     }
 }
