@@ -19,6 +19,14 @@ public class GatewayConfig {
                         rt.path("/movement-microservice/**")
                                 .filters(f -> f.stripPrefix(1))
                                 .uri("lb://MOVEMENTSMICROSERVICE"))
+                .route("walletdigital", rt ->
+                        rt.path("/wallet-microservice/**")
+                                .filters(f -> f.stripPrefix(1))
+                                .uri("lb://WALLETDIGITAL"))
+                .route("auth-microservice", rt ->
+                        rt.path("/auth-microservice/**")
+                                .filters(f -> f.stripPrefix(1))
+                                .uri("lb://AUTH-MICROSERVICE"))
                 .build();
     }
 }

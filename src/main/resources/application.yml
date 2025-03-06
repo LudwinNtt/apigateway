@@ -1,4 +1,7 @@
 
+jwt:
+  secret: mykeysecret142as*1254$%&2121200.4545
+
 spring:
   application:
     name: apigateway-microservice
